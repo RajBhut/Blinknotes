@@ -1,0 +1,9 @@
+.frm
+{
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+}

@@ -67,7 +67,7 @@ function Nav() {
 
   useEffect(() => {
     let prevY = window.scrollY;
-    console.log("prevY?", prevY);
+    
     const onScroll = (event) => {
       const currY = window.scrollY;
 

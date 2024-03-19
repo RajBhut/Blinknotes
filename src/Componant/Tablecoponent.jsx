@@ -1,69 +1,53 @@
 
 import { TableTbody } from '@mantine/core';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 import { Table } from 'react-bootstrap';
+import './table.css';
 
 
 
 
 
-const sampleData = [
-  { id: 1, name: 'Item 1', description: 'This is the first item' },
-  { id: 2, name: 'Item 2', description: 'This is the second item' },
-  { id: 3, name: 'Item 3', description: 'This is the third item' },
-];
-
-const TableComponent = () => {
-  const [data , setdata] = useState([]);
 
 
-  function clicked(e)
+const TableComponent = ({data}) => {
+
+  async function viewpdf (noteid) 
   {
-    let id = document.getElementById("in");
-      var idnum = id.value;
-    
-      
-
-      async  function callAPI()
-    {
-      const response = await fetch (`http://http://localhost:8080/api/notes/k/${idnum}`);
-      const data = await response.json();
-      setdata(data);
+    try {
+      const response = await axios.get(`http://localhost:8080/api/notes/${noteid}/pdf`,{responseType : 'blob'});
+      const pdfblob = new Blob([response.data],{type:'application/pdf'});
+      const url = URL.createObjectURL(pdfblob);
+      window.open(url,'_blank');
+    } catch (error) {
+      console.error('Error opening PDF:',error);
     }
- 
-    callAPI();
-
   }
-  useEffect(()=>
-  {
-
-
-
-
-
-    
-  },[])
-
-
-
-
+  
   return (
-    <Table striped variant='dark'>
+    <Table striped bordered hover className='tb' >
 <tbody>
 
 
 <tr>
-  <td>Id </td>
-  <td>Name</td>
-  <td>Description</td>
+  <td>no. </td>
+  <td>branchname</td>
+  <td>subjectname</td>
+  <td>chaptername</td>
+  <td>notesname</td>
+  <td>view</td>
 </tr>
 {
-  sampleData.map((item , i)=>
+  data.map((item , i)=>
   <tr key={i}>
-  <td>{item.id} </td>
-  <td>{item.name}</td>
-  <td>{item.description}</td>
+  <td>{i+1} </td>
+  <td>{item.branchname}</td>
+  <td>{item.subjectname}</td>
+  <td>{item.chaptername}</td>
+  <td>{item.notesname}</td>
+  <td>{ <button onClick={()=>viewpdf(item.notesid)}>view</button>}</td>
 </tr>
   )
 }
