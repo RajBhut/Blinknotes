@@ -4,6 +4,7 @@ nav{
     position: sticky;
     top: 0;
    z-index: 10;
+   min-width: fit-content;
 
 }
 nav ul{
@@ -92,4 +93,11 @@ nav li:first-child
     color:  black;
     border-radius: 0px 0px 2px 5px;
     width: auto;
+}
+@media(max-width: 500px)
+{
+    nav ul
+    {
+        min-width: 70vb;
+    }
 }

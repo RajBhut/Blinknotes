@@ -111,28 +111,39 @@ function Nav() {
             <a href="">
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M256-213.847 213.847-256l224-224-224-224L256-746.153l224 224 224-224L746.153-704l-224 224 224 224L704-213.847l-224-224-224 224Z" /></svg>
             </a>
-          </li>
-          <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
+       </li>
+          <li><Link to={"/"}>Home</Link></li>
           <li onClick={handleMaterialDropdownClickforsidebar}><a href="">Material</a>
 
-          {isslidemanuematerialopen&& (
-              <ul className="material-dropdown" id='sidebar'>
-                <li><a href="#">Option 1</a></li>
+          {isslidemanuematerialopen&& (<>
+            <ul className="material-dropdown" id='sidebar'>
+                <li> <Link to={"/material"}>option 1</Link></li>
                 <li><a href="#">Option 2</a></li>
               </ul>
+              </>
             )}
-
-       
+          
           </li>
+           {isslidemanuematerialopen&&(
+              <><ul> <ul className="material-dropdown" id='sidebar'>
+              <li> <Link to={"/material"}>option 1</Link></li>
+              <li><a href="#">Option 2</a></li>
+            </ul>
+            <ul className='Sidebar'>
+
+            <li><a href="">About</a></li> </ul>
+            </ul>
+              </>
+            )}
+          {!isslidemanuematerialopen&&(
+              <> <li><a href="">About</a></li> 
+              </>
+            )}
+           
         </ul>
         <ul>
           <li><a href="">Raj</a></li>
-          <select name="Material" id="">
-           
-            <option value="name">i1</option>
-            <option value="name2">i2</option>
-          </select>
+        
           <li className="hideOnMobile"><Link to={"/"}>Home</Link></li>
           <li
             onClick={handleMaterialDropdownClick}

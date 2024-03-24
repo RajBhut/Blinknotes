@@ -34,7 +34,7 @@ const handleSubmit = (e) => {
     {
       console.errorr("failed to uplod file ")
     };
-  }).catch(error => {console.error('Eroor: ' , error);});
+  }).catch(error => {});
 
 
 };
@@ -43,17 +43,20 @@ const handleSubmit = (e) => {
 
   return (
   <><Nav />
-  
-  <form onSubmit={handleSubmit}><div className='frm'>
-    <input type="file" onChange={handleFileChange} />
+ <div className='cont'>
+  <form onSubmit={handleSubmit}>
+    <div className='frm'>
+    <div className='btn'>
+    <input  type="file" onChange={handleFileChange} />
+   </div>
     <input type="text" name='filename' placeholder='Filename' onChange={handleInputChange}/>
     <input type="text" name='notename' placeholder='Notename' onChange={handleInputChange}/>
-    <input type="text" name='subjectname' placeholder='subject' onChange={handleInputChange}/>
-    <input type="text" name='chaptername' placeholder='chaptername' onChange={handleInputChange}/>
-    <input type="text" name='branchname' placeholder='branch' onChange={handleInputChange}/>
-<button type='submit'> uplod</button>
+    <input type="text" name='subjectname' placeholder='Subject' onChange={handleInputChange}/>
+    <input type="text" name='chaptername' placeholder='Chaptername' onChange={handleInputChange}/>
+    <input type="text" name='branchname' placeholder='Branch' onChange={handleInputChange}/>
+<button className='sub' type='submit'> Upload</button>
     
-  </div></form>
+  </div></form></div>
 </>
   )
 }

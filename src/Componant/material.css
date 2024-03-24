@@ -1,9 +1,74 @@
-.frm
-{
+.cont {
     display: flex;
-    flex-direction: column;
-    width: 50rem;
-    height: inherit;
     justify-content: center;
     align-items: center;
+}
+
+form {
+    width: fit-content;
+}
+
+.frm
+{
+  
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+    left: 500px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    border-radius: 32px;
+  
+
+    
+}
+.sub
+{
+    border-radius: 16px 32px 16px 32px;
+    background-color: rgba(23, 98, 100, 0.575);
+    width: 100px;
+    height: 40px;
+    border: none;
+}
+.frm input
+{
+    outline: none; 
+      border: none;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.151);
+
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+    height: 40px;
+    font-size: larger;
+    background-color: transparent;
+
+}
+
+.btn
+{
+    
+     display: flex;
+    align-items: center;
+    justify-content: center;
+   
+     flex-direction: column;
+
+   
+}
+.btn input{
+    border-radius: 10px;
+    text-decoration: none;
+   
+    backdrop-filter: blur(10px); 
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    padding: 5px;
+    height: inherit;
+    width: fit-content;
 }
