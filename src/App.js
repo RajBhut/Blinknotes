@@ -16,7 +16,7 @@ function App() {
   const  fatchdata = async(searchvalue)=>
   {
      
-    
+    const test = searchvalue.toLowerCase();
     try{const response = await fetch(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/k/${searchvalue}` , {
       method: 'GET',
      mode: 'no-cors',
