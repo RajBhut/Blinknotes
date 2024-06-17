@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function Material() {
 
 const [file , setfile] = useState(null);
-const [formData,setFormData] = useState({filename:'' , notename:'' , subjectname:  '' , branchname:''});
+const [formData,setFormData] = useState({filename:'' , notename:'' , subjectname:  '' , branchname:'' , chaptername:''});
 const handleFileChange = (e) => {
   setfile(e.target.files[0]);
 };
@@ -18,11 +18,11 @@ const handleSubmit = (e) => {
   e.preventDefault();
   const formDataWithFile = new FormData();
   formDataWithFile.append('file',file);
-  formDataWithFile.append('filename',formData.filename);
-  formDataWithFile.append('notename',formData.notename);
-  formDataWithFile.append('chaptername',formData.chaptername);
-  formDataWithFile.append('subjectname',formData.subjectname);
-  formDataWithFile.append('branchname',formData.branchname);
+  formDataWithFile.append('filename',formData.filename.toLowerCase);
+  formDataWithFile.append('notename',formData.notename.toLowerCase);
+  formDataWithFile.append('chaptername',formData.chaptername.toLowerCase);
+  formDataWithFile.append('subjectname',formData.subjectname.toLowerCase);
+  formDataWithFile.append('branchname',formData.branchname.toLowerCase);
  
   fetch('https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/upload/k' , {
     method:'POST',mode: 'no-cors',
@@ -31,12 +31,15 @@ const handleSubmit = (e) => {
   }
 )
 .then(response => {
+  setFormData({filename:'' , notename:'' , subjectname:  '' , branchname:'' , chaptername:''});
+  alert('file uploaded successfully');
     if(response.ok)
     {
       console.log("file uploded successfully");
     }else
     {
       console.errorr("failed to uplod file ")
+      alert('failed to upload file');
     };
   }).catch(error => {});
 
