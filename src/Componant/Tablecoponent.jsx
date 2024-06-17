@@ -29,18 +29,13 @@ const TableComponent = ({data}) => {
   async function viewpdf(noteid) {
     try {
       const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`);
-      const link = document.createElement('a');
-      link.href = response.data; // assuming response.data is the URL to the file
-      link.setAttribute('download', ''); // the browser will automatically use the filename from the URL
-      document.body.appendChild(link);
-      link.click();
-      link.parentNode.removeChild(link);
+      setPdfUrl(response.data);
     } catch (error) {
       console.error('Error opening PDF:', error);
     }
   }
-  
   return (
+   <>
     <Table striped bordered hover className='tb' >
 <tbody>
 
@@ -55,7 +50,7 @@ const TableComponent = ({data}) => {
 </tr>
 {
   data.map((item , i)=>
-  <tr key={i}>
+    <tr key={i}>
   <td>{i+1} </td>
   <td>{item.branchname}</td>
   <td>{item.subjectname}</td>
@@ -63,10 +58,13 @@ const TableComponent = ({data}) => {
   <td>{item.notesname}</td>
   <td>{ <button onClick={()=>viewpdf(item.notesid)}>view</button>}</td>
 </tr>
-  )
+
+)
 }
 </tbody>
     </Table>
+     {pdfUrl && <iframe src={pdfUrl} width="100%" height="600px" />}
+</>
   );
 
 }
