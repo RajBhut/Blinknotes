@@ -21,7 +21,7 @@ function App() {
       method: 'GET',
      mode: 'no-cors',
     
-    });  
+    })
 
       const data = await response.json();
       console.log(data);
