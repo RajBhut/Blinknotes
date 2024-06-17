@@ -14,16 +14,30 @@ import './table.css';
 
 const TableComponent = ({data}) => {
 
-  async function viewpdf (noteid) 
-  {
-    try {
-     // const response = await axios.get(`http://localhost:8080/api/notes/${noteid}/pdf`,{responseType : 'blob'});
-    //  const pdfblob = new Blob([response.data],{type:'application/pdf'});
-    const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`)
+  // async function viewpdf (noteid) 
+  // {
+  //   try {
+  //    // const response = await axios.get(`http://localhost:8080/api/notes/${noteid}/pdf`,{responseType : 'blob'});
+  //   //  const pdfblob = new Blob([response.data],{type:'application/pdf'});
+  //   const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`)
    
-      window.open(response.data,'_blank');
+  //     window.open(response.data,'_blank');
+  //   } catch (error) {
+  //     console.error('Error opening PDF:',error);
+  //   }
+  // }
+  async function viewpdf(noteid) {
+    try {
+      const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`);
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'file.pdf'); // or any other filename you want
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
     } catch (error) {
-      console.error('Error opening PDF:',error);
+      console.error('Error opening PDF:', error);
     }
   }
   
