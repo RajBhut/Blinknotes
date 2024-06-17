@@ -13,6 +13,7 @@ import './table.css';
 
 
 const TableComponent = ({data}) => {
+  const [pdfUrl, setPdfUrl] = useState(null);
 
   // async function viewpdf (noteid) 
   // {
