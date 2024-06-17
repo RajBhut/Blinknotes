@@ -9,9 +9,9 @@ function Searchbar({onSearch})
 
    function searched()
    {
-    if(!(searchvalue === ''))
-
-    onSearch(searchvalue);
+    if(!(searchvalue === '')){
+Setsearchvalue(searchvalue.toLowerCase());
+    onSearch(searchvalue);}
 else
 alert('please enter search value');
     
