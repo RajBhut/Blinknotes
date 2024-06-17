@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Nav from './Nav'
 import './material.css'
+import axios from 'axios';
 export default function Material() {
 
 const [file , setfile] = useState(null);
@@ -22,11 +23,14 @@ const handleSubmit = (e) => {
   formDataWithFile.append('chaptername',formData.chaptername);
   formDataWithFile.append('subjectname',formData.subjectname);
   formDataWithFile.append('branchname',formData.branchname);
-  fetch('http://localhost:8080/api/notes/upload/k' , {
+ 
+  fetch('https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/upload/k' , {
     method:'POST',mode: 'no-cors',
 
-    body : formDataWithFile
-  }).then(response => {
+    body : formDataWithFile 
+  }
+)
+.then(response => {
     if(response.ok)
     {
       console.log("file uploded successfully");

@@ -17,7 +17,7 @@ function App() {
   {
      
     
-    try{const response = await fetch(`http://localhost:8080/api/notes/k/${searchvalue}`);  
+    try{const response = await fetch(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/k/${searchvalue}`);  
 
       const data = await response.json();
       console.log(data);

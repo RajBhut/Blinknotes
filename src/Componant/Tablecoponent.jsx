@@ -1,7 +1,7 @@
 
-import { TableTbody } from '@mantine/core';
+
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+
 
 import { Table } from 'react-bootstrap';
 import './table.css';
@@ -17,10 +17,11 @@ const TableComponent = ({data}) => {
   async function viewpdf (noteid) 
   {
     try {
-      const response = await axios.get(`http://localhost:8080/api/notes/${noteid}/pdf`,{responseType : 'blob'});
-      const pdfblob = new Blob([response.data],{type:'application/pdf'});
-      const url = URL.createObjectURL(pdfblob);
-      window.open(url,'_blank');
+     // const response = await axios.get(`http://localhost:8080/api/notes/${noteid}/pdf`,{responseType : 'blob'});
+    //  const pdfblob = new Blob([response.data],{type:'application/pdf'});
+    const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`)
+   
+      window.open(response.data,'_blank');
     } catch (error) {
       console.error('Error opening PDF:',error);
     }
