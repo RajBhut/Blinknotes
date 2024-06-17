@@ -29,10 +29,9 @@ const TableComponent = ({data}) => {
   async function viewpdf(noteid) {
     try {
       const response = await axios.get(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/${noteid}/pdf`);
-      const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'file.pdf'); // or any other filename you want
+      link.href = response.data; // assuming response.data is the URL to the file
+      link.setAttribute('download', ''); // the browser will automatically use the filename from the URL
       document.body.appendChild(link);
       link.click();
       link.parentNode.removeChild(link);
