@@ -17,7 +17,13 @@ function App() {
   {
      
     
-    try{const response = await fetch(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/k/${searchvalue}`);  
+    try{const response = await fetch(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/k/${searchvalue}` , {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },mode: 'no-cors',
+    
+    });  
 
       const data = await response.json();
       console.log(data);
