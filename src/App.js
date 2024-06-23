@@ -20,7 +20,7 @@ function App() {
     try{const response = await fetch(`https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/k/${searchvalue}` ,
     {
       method: 'GET',
-      cors: 'no-cors',
+    mode: 'no-cors'
     }
 
     )
