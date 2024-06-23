@@ -26,9 +26,9 @@ function App() {
     )
 
       const data = await response.json();
-      console.log(data);
+     
       settabledata(data);
-      console.log("fatched");
+     
     }
     catch(error)
     {

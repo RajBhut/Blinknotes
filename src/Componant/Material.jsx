@@ -18,11 +18,11 @@ const handleSubmit = (e) => {
   e.preventDefault();
   const formDataWithFile = new FormData();
   formDataWithFile.append('file',file);
-  formDataWithFile.append('filename',formData.filename.toLowerCase);
-  formDataWithFile.append('notename',formData.notename.toLowerCase);
-  formDataWithFile.append('chaptername',formData.chaptername.toLowerCase);
-  formDataWithFile.append('subjectname',formData.subjectname.toLowerCase);
-  formDataWithFile.append('branchname',formData.branchname.toLowerCase);
+  formDataWithFile.append('filename',formData.filename.toLowerCase());
+  formDataWithFile.append('notename',formData.notename.toLowerCase());
+  formDataWithFile.append('chaptername',formData.chaptername.toLowerCase());
+  formDataWithFile.append('subjectname',formData.subjectname.toLowerCase());
+  formDataWithFile.append('branchname',formData.branchname.toLowerCase());
  
   fetch('https://blinknotess-f1199a4df86d.herokuapp.com/api/notes/upload/k' , {
     method:'POST',mode: 'no-cors',
