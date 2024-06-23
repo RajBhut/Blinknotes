@@ -60,7 +60,7 @@ function Nav() {
       document.documentElement.style.setProperty('--dropdown-x', pos.left + 'px');
       document.documentElement.style.setProperty('--dropdown-y', pos.bottom + 'px');
 
-      console.log(pos)
+    
 
     }
   }, [isMaterialDropdownOpen])
@@ -76,7 +76,7 @@ function Nav() {
       const lastVarY = parseFloat(document.documentElement.style.getPropertyValue("--dropdown-y"));
       document.documentElement.style.setProperty('--dropdown-y', (lastVarY + diff) + 'px');
 
-      console.log(diff);
+    
 
       prevY = currY;
     };
@@ -98,11 +98,7 @@ function Nav() {
     Sidebar.style.display = 'none';
   }
 
-  function onoptionclick (name)
-  {
-    
 
-  }
   return (
     <>
       <nav className="myNav">
