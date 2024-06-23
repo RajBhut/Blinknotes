@@ -40,3 +40,5 @@ Blinknotes is licensed under the MIT License. See the [LICENSE](LICENSE) file fo
 If you have any questions or suggestions, feel free to reach out to us at rajbhut283005@gmail.com.
 
 Happy note-taking!
+
+- link: https://blinknotes-tj5f.vercel.app/
